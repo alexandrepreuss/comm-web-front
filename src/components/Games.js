@@ -34,6 +34,7 @@ const Games = props => {
               placeholder="Buscar jogos"
               value={props.term}
               onChange={getSearchTerm}
+              style={{ marginBottom: '1%' }}
             />
           </Form.Group>
         </Form>
