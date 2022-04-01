@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 import GameList from './GameList'
 
 const Games = props => {
+  const inputEl = useRef('')
   const renderGameList = props.games.map(game => {
     const deleteGameHandler = id => {
       props.getGameId(id)
@@ -11,6 +12,10 @@ const Games = props => {
 
     return <GameList game={game} clickHandler={deleteGameHandler} key={game.id} />
   })
+
+  const getSearchTerm = () => {
+    props.searchKeyword(inputEl.current.value)
+  }
 
   return (
     <>
@@ -21,6 +26,17 @@ const Games = props => {
             <Button>Adicionar jogo</Button>
           </Link>
         </div>
+        <Form>
+          <Form.Group>
+            <Form.Control
+              ref={inputEl}
+              type="text"
+              placeholder="Buscar jogos"
+              value={props.term}
+              onChange={getSearchTerm}
+            />
+          </Form.Group>
+        </Form>
         <table className="table">
           <thead className="thead-light">
             <tr>
@@ -32,7 +48,7 @@ const Games = props => {
               <th>Categoria</th>
             </tr>
           </thead>
-          <tbody>{renderGameList}</tbody>
+          <tbody>{renderGameList.length > 0 ? renderGameList : 'Nenhum resultado encontrado'}</tbody>
         </table>
       </div>
     </>

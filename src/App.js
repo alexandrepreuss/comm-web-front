@@ -11,6 +11,8 @@ import EditGame from './components/EditGame'
 function App() {
   const LOCAL_STORAGE_KEY = 'games'
   const [games, setGames] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchResults, setSearchResults] = useState([])
 
   //RetrieveGames
   const retrieveGames = async () => {
@@ -48,6 +50,18 @@ function App() {
     setGames(newGameList)
   }
 
+  const searchHandler = searchTerm => {
+    setSearchTerm(searchTerm)
+    if (searchTerm !== '') {
+      const newGameList = games.filter(game => {
+        return Object.values(game).join(' ').toLowerCase().includes(searchTerm.toLowerCase())
+      })
+      setSearchResults(newGameList)
+    } else {
+      setSearchResults(games)
+    }
+  }
+
   useEffect(() => {
     const getAllGames = async () => {
       const allGames = await retrieveGames()
@@ -66,9 +80,21 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route
+            path="/"
+            exact
+            render={props => (
+              <Games
+                {...props}
+                games={searchTerm.length < 1 ? games : searchResults}
+                getGameId={removeGameHandler}
+                term={searchTerm}
+                searchKeyword={searchHandler}
+              />
+            )}
+          />
           <Route path="/add" render={props => <RegisterForm {...props} addGameHandler={addGameHandler} />} />
           <Route path="/edit" render={props => <EditGame {...props} updateGameHandler={updateGameHandler} />} />
-          <Route path="/" exact render={props => <Games {...props} games={games} getGameId={removeGameHandler} />} />
         </Switch>
       </Router>
     </>
