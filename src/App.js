@@ -1,39 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
 import api from './api/games'
 import './App.css'
 import Games from './components/Games'
-import RegisterForm from './components/RegisterForm'
+import AddGame from './components/AddGame'
 import Header from './components/Header'
 import EditGame from './components/EditGame'
 
 function App() {
-  const LOCAL_STORAGE_KEY = 'games'
+  const LOCAL_STORAGE_KEY = 'jogos'
   const [games, setGames] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
 
   //RetrieveGames
   const retrieveGames = async () => {
-    const response = await api.get('/games')
+    const response = await api.get('/jogos')
     return response.data
   }
 
   const addGameHandler = async game => {
-    const request = {
-      id: uuidv4(),
-      ...game,
-    }
-
-    const response = await api.post('/games', request)
-
+    // const request = {
+    //   ...game,
+    // }
+    const response = await api.post('/jogos', game)
     setGames([...games, response.data])
   }
 
   const updateGameHandler = async game => {
-    const response = await api.put(`/games/${game.id}`, game)
-    const { id, name, url_game, url_img, description, category } = response.data
+    const response = await api.put(`/jogos/${game.id}`, game)
+    const { id, nome, url_jogo, url_imagem, url_demo, descricao, id_categoria } = response.data
     setGames(
       games.map(game => {
         return game.id === id ? { ...response.data } : game
@@ -42,7 +38,7 @@ function App() {
   }
 
   const removeGameHandler = async id => {
-    await api.delete(`/games/${id}`)
+    await api.delete(`/jogos/${id}`)
     const newGameList = games.filter(game => {
       return game.id !== id
     })
@@ -93,7 +89,7 @@ function App() {
               />
             )}
           />
-          <Route path="/add" render={props => <RegisterForm {...props} addGameHandler={addGameHandler} />} />
+          <Route path="/add" render={props => <AddGame {...props} addGameHandler={addGameHandler} />} />
           <Route path="/edit" render={props => <EditGame {...props} updateGameHandler={updateGameHandler} />} />
         </Switch>
       </Router>
