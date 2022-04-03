@@ -17,6 +17,10 @@ const Games = props => {
     props.searchKeyword(inputEl.current.value)
   }
 
+  const refreshPage = () => {
+    window.location.reload(false)
+  }
+
   return (
     <>
       <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
@@ -50,6 +54,7 @@ const Games = props => {
           </thead>
           <tbody>{renderGameList.length > 0 ? renderGameList : 'Nenhum resultado encontrado'}</tbody>
         </table>
+        <Button onClick={refreshPage}>Atualizar </Button>
       </div>
     </>
   )
