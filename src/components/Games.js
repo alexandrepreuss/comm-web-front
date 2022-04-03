@@ -45,10 +45,10 @@ const Games = props => {
             <tr>
               {/* <th>ID</th> */}
               <th>Nome</th>
-              <th>URL</th>
-              <th>Imagem</th>
-              <th>Descrição</th>
-              <th>Categoria</th>
+              <th className="d-none d-sm-table-cell">URL</th>
+              <th className="d-none d-sm-table-cell">Imagem</th>
+              <th className="d-none d-sm-table-cell">Descrição</th>
+              <th className="d-none d-sm-table-cell">Categoria</th>
             </tr>
           </thead>
           <tbody>{renderGameList.length > 0 ? renderGameList : 'Nenhum resultado encontrado'}</tbody>

@@ -9,10 +9,16 @@ const GameList = props => {
     <>
       <tr>
         <td title={nome}>{nome.length > 18 ? nome.slice(0, 18) + `...` : nome}</td>
-        <td title={url_jogo}>{url_jogo.length > 12 ? url_jogo.slice(0, 12) + `...` : url_jogo}</td>
-        <td title={url_imagem}>{url_imagem.length > 12 ? url_imagem.slice(0, 10) + `...` : url_imagem}</td>
-        <td title={descricao}>{descricao.length > 18 ? descricao.slice(0, 19) + `...` : descricao}</td>
-        <td>{categoria.nome}</td>
+        <td className="d-none d-sm-table-cell" title={url_jogo}>
+          {url_jogo.length > 12 ? url_jogo.slice(0, 12) + `...` : url_jogo}
+        </td>
+        <td className="d-none d-sm-table-cell" title={url_imagem}>
+          {url_imagem.length > 12 ? url_imagem.slice(0, 10) + `...` : url_imagem}
+        </td>
+        <td className="d-none d-sm-table-cell" title={descricao}>
+          {descricao.length > 18 ? descricao.slice(0, 19) + `...` : descricao}
+        </td>
+        <td className="d-none d-sm-table-cell">{categoria.nome}</td>
         <td>
           <Link to={{ pathname: '/edit', state: { game: props.game } }}>
             <a href="#" className="btn btn-dark">
