@@ -38,7 +38,7 @@ class AddGame extends Component {
       <>
         <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
           <h2>Adicionar novo jogo</h2>
-          <Form onSubmit={this.handleSubmit}>
+          <Form onSubmit={this.handleSubmit} autoComplete="off">
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Nome do jogo:</Form.Label>
               <Form.Control

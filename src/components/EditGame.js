@@ -39,7 +39,7 @@ class EditGame extends Component {
       <>
         <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
           <h2>Atualizar informações</h2>
-          <Form onSubmit={this.update}>
+          <Form onSubmit={this.update} autoComplete="off">
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Nome do jogo:</Form.Label>
               <Form.Control
