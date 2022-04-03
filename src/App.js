@@ -16,6 +16,7 @@ function App() {
   //RetrieveGames
   const retrieveGames = async () => {
     const response = await api.get('/jogos')
+    console.log(response.data)
     return response.data
   }
 
@@ -29,7 +30,7 @@ function App() {
 
   const updateGameHandler = async game => {
     const response = await api.put(`/jogos/${game.id}`, game)
-    const { id, nome, url_jogo, url_imagem, url_demo, descricao, id_categoria } = response.data
+    const { id, nome, url_jogo, url_imagem, url_demo, descricao, id_categoria, categoria } = response.data
     setGames(
       games.map(game => {
         return game.id === id ? { ...response.data } : game

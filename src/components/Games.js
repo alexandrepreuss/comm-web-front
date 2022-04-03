@@ -9,7 +9,6 @@ const Games = props => {
     const deleteGameHandler = id => {
       props.getGameId(id)
     }
-
     return <GameList game={game} clickHandler={deleteGameHandler} key={game.id} />
   })
 
