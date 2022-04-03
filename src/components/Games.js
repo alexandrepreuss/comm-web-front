@@ -54,7 +54,7 @@ const Games = props => {
           </thead>
           <tbody>{renderGameList.length > 0 ? renderGameList : 'Nenhum resultado encontrado'}</tbody>
         </table>
-        <Button onClick={refreshPage}>Atualizar </Button>
+        <Button onClick={refreshPage}>Atualizar Lista</Button>
       </div>
     </>
   )
