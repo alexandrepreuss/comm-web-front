@@ -85,8 +85,7 @@ Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jog
 
 - O usuário deve clicar no botão **editar** do jogo à ser editado e será direcionado à tela de edição de jogo.
 - O usuário deve alterar os campos desejados para atualizar as informações neles contidas.
-- O usuário deve clicar no botão **salvar alterações** para salvar as alterações na Base de Dados.
-- O usuário deve clicar no botão **Home** da barra de navegação do site para retornar à tela de Lista de Jogos.
+- O usuário deve clicar no botão **salvar alterações** para salvar as alterações na Base de Dados e ser redirecionado à tela de Lista de Jogos.
 - O usuário deve cliar no botão **Atualizar Lista** para ver a lista atualizada com os novos valores.
 
 **Deletando um jogo existente:**
