@@ -73,7 +73,7 @@ O projeto será inicializado em [http://localhost:3000](http://localhost:3000).
 
 ## 5. Guia do usuário
 
-Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jogos cadastrado em seu banco de dados. O usuário pode **adicionar um novo jogo**, **editar jogos existentes**, **deletar jogos existentes**, **buscar jogos na lista**. 
+Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jogos cadastrados em seu banco de dados. O usuário pode **adicionar um novo jogo**, **editar jogos existentes**, **deletar jogos existentes**, **buscar jogos na lista**. 
 
 **Adicionando um novo jogo:** 
 
