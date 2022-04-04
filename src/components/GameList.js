@@ -9,8 +9,11 @@ const GameList = props => {
     <>
       <tr>
         <td title={nome}>{nome.length > 18 ? nome.slice(0, 18) + `...` : nome}</td>
-        <td className="d-none d-sm-table-cell" title={url_jogo}>
+        {/* <td className="d-none d-sm-table-cell" title={url_jogo}>
           {url_jogo.length > 12 ? url_jogo.slice(0, 12) + `...` : url_jogo}
+        </td> */}
+        <td className="d-none d-sm-table-cell" title={url_jogo}>
+          {url_jogo}
         </td>
         <td className="d-none d-sm-table-cell" title={url_imagem}>
           {url_imagem.length > 12 ? url_imagem.slice(0, 10) + `...` : url_imagem}
