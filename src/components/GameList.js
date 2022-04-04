@@ -8,7 +8,9 @@ const GameList = props => {
   return (
     <>
       <tr>
-        <td title={nome}>{nome.length > 18 ? nome.slice(0, 18) + `...` : nome}</td>
+        <td title={nome} style={{ fontWeight: 'bold' }}>
+          <p>{nome.length > 18 ? nome.slice(0, 18) + `...` : nome}</p>
+        </td>
         {/* <td className="d-none d-sm-table-cell" title={url_jogo}>
           {url_jogo.length > 12 ? url_jogo.slice(0, 12) + `...` : url_jogo}
         </td> */}
