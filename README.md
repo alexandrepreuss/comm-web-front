@@ -73,7 +73,7 @@ O projeto será inicializado em [http://localhost:3000](http://localhost:3000).
 
 ## 5. Guia do usuário
 
-Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jogos cadastrado em seu banco de dados. O usuário pode **adicionar um novo jogo**, **editar jogos existentes**, **deletar jogos existentes**, **buscar jogos na lista**. 
+Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jogos cadastrados em seu banco de dados. O usuário pode **adicionar um novo jogo**, **editar jogos existentes**, **deletar jogos existentes**, **buscar jogos na lista**. 
 
 **Adicionando um novo jogo:** 
 
@@ -85,8 +85,7 @@ Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jog
 
 - O usuário deve clicar no botão **editar** do jogo à ser editado e será direcionado à tela de edição de jogo.
 - O usuário deve alterar os campos desejados para atualizar as informações neles contidas.
-- O usuário deve clicar no botão **salvar alterações** para salvar as alterações na Base de Dados.
-- O usuário deve clicar no botão **Home** da barra de navegação do site para retornar à tela de Lista de Jogos.
+- O usuário deve clicar no botão **salvar alterações** para salvar as alterações na Base de Dados e ser redirecionado à tela de Lista de Jogos.
 - O usuário deve cliar no botão **Atualizar Lista** para ver a lista atualizada com os novos valores.
 
 **Deletando um jogo existente:**
