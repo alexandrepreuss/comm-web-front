@@ -102,17 +102,8 @@ class AddGame extends Component {
                 <option value={3}>Tiro</option>
                 <option value={4}>Corrida</option>
               </Form.Select>
-              {/* <Form.Select aria-label="Default select example">
-                <option value="">Selecione a categoria</option>
-                <option value="Shooter">Shooter</option>
-                <option value="Puzzle">Puzzle</option>
-                <option value="Arcade">Arcade</option>
-                <option value="RPG">Role Playing Game (RPG)</option>
-                <option value="Sports">Sports</option>
-                <option value="Action">Action</option>
-                <option value="Adventure">Adventure</option>
-              </Form.Select> */}
             </Form.Group>
+
             <Button className="w-100" style={{ marginTop: '16px' }} type="submit">
               Salvar
             </Button>

@@ -1,22 +1,43 @@
 import React, { useState, useEffect, Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import api from './api/games'
+import categoryApi from './api/categories'
+import { v4 as uuid } from 'uuid'
 import './App.css'
 import Games from './components/Games'
 import AddGame from './components/AddGame'
+import AddCategory from './components/AddCategory'
 import Header from './components/Header'
 import EditGame from './components/EditGame'
 
 function App() {
   const LOCAL_STORAGE_KEY = 'jogos'
   const [games, setGames] = useState([])
+  const [categories, setCategories] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
 
-  //RetrieveGames
+  /**
+   *
+   * Métodos de chamada HTTP para Categorias
+   */
+  const addCategoryHandler = async category => {
+    const request = {
+      id: uuid(),
+      ...category,
+    }
+
+    const response = await categoryApi.post('/categories', request)
+    setCategories([...categories, response.data])
+    console.log(response)
+  }
+
+  /**
+   *
+   * Métodos de chamada HTTP para Jogos
+   */
   const retrieveGames = async () => {
     const response = await api.get('/jogos')
-    console.log(response.data)
     return response.data
   }
 
@@ -92,6 +113,10 @@ function App() {
           />
           <Route path="/add" render={props => <AddGame {...props} addGameHandler={addGameHandler} />} />
           <Route path="/edit" render={props => <EditGame {...props} updateGameHandler={updateGameHandler} />} />
+          <Route
+            path="/categories"
+            render={props => <AddCategory {...props} addCategoryHandler={addCategoryHandler} />}
+          />
         </Switch>
       </Router>
     </>
