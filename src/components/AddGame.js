@@ -97,10 +97,14 @@ class AddGame extends Component {
             >
               <Form.Select aria-label="Default select example">
                 <option value="">Selecione a categoria</option>
+                {this.props.categories.map(category => (
+                  <option value={category.id}>{category.nome}</option>
+                ))}
+                {/* <option value="">Selecione a categoria</option>
                 <option value={1}>Ação</option>
                 <option value={2}>Luta</option>
                 <option value={3}>Tiro</option>
-                <option value={4}>Corrida</option>
+                <option value={4}>Corrida</option> */}
               </Form.Select>
             </Form.Group>
 

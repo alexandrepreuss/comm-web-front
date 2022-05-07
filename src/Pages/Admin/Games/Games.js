@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
-import GameList from './GameList'
+import GameList from '../../../components/GameList'
 
 const Games = props => {
   const inputEl = useRef('')
@@ -43,7 +43,6 @@ const Games = props => {
         <table className="table">
           <thead className="thead-light">
             <tr>
-              {/* <th>ID</th> */}
               <th>Nome</th>
               <th className="d-none d-sm-table-cell">URL</th>
               <th className="d-none d-sm-table-cell">Imagem</th>

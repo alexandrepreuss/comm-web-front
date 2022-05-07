@@ -18,6 +18,8 @@ class AddCategory extends Component {
     this.setState({
       nome: '',
     })
+
+    this.props.history.push('/categories')
   }
 
   render() {
