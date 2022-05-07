@@ -8,7 +8,7 @@ class AddCategory extends Component {
   }
 
   state = {
-    title: '',
+    nome: '',
   }
 
   handleSubmit(e) {
@@ -16,7 +16,7 @@ class AddCategory extends Component {
 
     this.props.addCategoryHandler(this.state)
     this.setState({
-      title: '',
+      nome: '',
     })
   }
 
@@ -29,7 +29,7 @@ class AddCategory extends Component {
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlInput1"
-              onChange={e => this.setState({ title: e.target.value })}
+              onChange={e => this.setState({ nome: e.target.value })}
             >
               <Form.Label>Nome da categoria:</Form.Label>
               <Form.Control
