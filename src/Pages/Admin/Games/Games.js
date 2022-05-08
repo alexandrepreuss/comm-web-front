@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
-import GameList from '../../../components/GameList'
+import GameList from './GameList'
 
 const Games = props => {
   const inputEl = useRef('')

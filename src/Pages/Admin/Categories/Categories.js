@@ -1,10 +1,9 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
-import CategoryList from '../../../components/CategoryList'
+import CategoryList from './CategoryList'
 
 const Categories = props => {
-  const inputEl = useRef('')
   const renderCategoryList = props.categories.map(category => {
     const deleteCategoryHandler = id => {
       props.getCatId(id)

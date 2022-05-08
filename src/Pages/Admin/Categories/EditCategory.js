@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 
-class AddCategory extends Component {
+class EditCategory extends Component {
   constructor(props) {
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    const { id, nome } = props.location.state.category
+    this.update = this.update.bind(this)
+    this.state = {
+      id,
+      nome,
+    }
   }
 
-  state = {
-    nome: '',
-  }
-
-  handleSubmit(e) {
+  update(e) {
     e.preventDefault()
 
-    this.props.addCategoryHandler(this.state)
+    this.props.updateCategoryHandler(this.state)
     this.setState({
       nome: '',
     })
+    console.log(this.state)
 
     this.props.history.push('/categories')
   }
@@ -26,8 +28,8 @@ class AddCategory extends Component {
     return (
       <>
         <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
-          <h2>Adicionar categoria</h2>
-          <Form onSubmit={this.handleSubmit} autoComplete="off">
+          <h2>Atualizar informações</h2>
+          <Form onSubmit={this.update} autoComplete="off">
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlInput1"
@@ -42,7 +44,7 @@ class AddCategory extends Component {
               />
             </Form.Group>
             <Button className="w-100" style={{ marginTop: '16px' }} type="submit">
-              Salvar
+              Salvar alterações
             </Button>
           </Form>
         </div>
@@ -50,4 +52,5 @@ class AddCategory extends Component {
     )
   }
 }
-export default AddCategory
+
+export default EditCategory

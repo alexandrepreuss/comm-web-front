@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import api from './api/games'
+import api from './Api/axios'
 import './App.css'
 import Games from './Pages/Admin/Games/Games'
-import AddGame from './components/AddGame'
+import AddGame from './Pages/Admin/Games/AddGame'
 import AddCategory from './Pages/Admin/Categories/AddCategory'
-import Header from './components/Header'
-import EditGame from './components/EditGame'
+import Header from './Components/Header'
+import EditGame from './Pages/Admin/Games/EditGame'
 import Categories from './Pages/Admin/Categories/Categories'
+import EditCategory from './Pages/Admin/Categories/EditCategory'
 
 function App() {
   const [games, setGames] = useState([])
@@ -156,6 +157,10 @@ function App() {
             render={props => <Categories {...props} categories={categories} getCatId={removeCategoryHandler} />}
           />
           <Route path="/addcat" render={props => <AddCategory {...props} addCategoryHandler={addCategoryHandler} />} />
+          <Route
+            path="/editcat"
+            render={props => <EditCategory {...props} updateCategoryHandler={updateCategoryHandler} />}
+          />
         </Switch>
       </Router>
     </>

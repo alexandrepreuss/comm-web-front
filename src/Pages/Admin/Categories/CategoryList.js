@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 const CategoryList = props => {
@@ -14,7 +13,7 @@ const CategoryList = props => {
         <td className="d-none d-sm-table-cell">{nome}</td>
 
         <td>
-          <Link to={{ pathname: '/edit', state: { game: props.game } }}>
+          <Link to={{ pathname: '/editcat', state: { category: props.category } }}>
             <a href="#" className="btn btn-dark">
               editar
             </a>
