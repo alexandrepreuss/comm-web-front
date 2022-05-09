@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import CardList from '../../Components/CardsList/CardList'
 import Header from '../../Components/Header'
 

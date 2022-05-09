@@ -7,7 +7,11 @@ const CardsList = props => {
     return <GameCard game={game} key={game.id} />
   })
 
-  return <div className="game-list">{renderCardList}</div>
+  return (
+    <>
+      <div className="game-list">{renderCardList}</div>
+    </>
+  )
 }
 
 export default CardsList

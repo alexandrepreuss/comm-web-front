@@ -10,9 +10,12 @@ const AdminHeader = () => {
           <Navbar.Brand href="#home">CommWeb Admin</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav>
+              <Link to="/">
+                <Nav.Link href="#home">Home</Nav.Link>
+              </Link>
               <Link to="/admin">
-                <Nav.Link href="#home">Jogos</Nav.Link>
+                <Nav.Link href="#games">Jogos</Nav.Link>
               </Link>
               <Link to="/categories">
                 <Nav.Link href="#category">Categorias</Nav.Link>
