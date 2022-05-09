@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import api from './Api/axios'
 import './App.css'
 import Games from './Pages/Admin/Games/Games'
+import Home from './Pages/Home/Home'
 import AddGame from './Pages/Admin/Games/AddGame'
 import AddCategory from './Pages/Admin/Categories/AddCategory'
-import Header from './Components/Header'
 import EditGame from './Pages/Admin/Games/EditGame'
 import Categories from './Pages/Admin/Categories/Categories'
 import EditCategory from './Pages/Admin/Categories/EditCategory'
@@ -122,10 +122,10 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
         <Switch>
+          <Route path="/" exact render={props => <Home {...props} games={games} />} />
           <Route
-            path="/"
+            path="/admin"
             exact
             render={props => (
               <Games
