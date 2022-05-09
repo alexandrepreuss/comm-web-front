@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Form } from 'react-bootstrap'
 import GameList from './GameList'
+import AdminHeader from '../../../Components/AdminHeader'
 
 const Games = props => {
   const inputEl = useRef('')
@@ -22,6 +23,7 @@ const Games = props => {
 
   return (
     <>
+      <AdminHeader />
       <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
         <div className="main d-flex" style={{ justifyContent: 'space-between', marginBottom: '2%' }}>
           <h2>Lista de Jogos</h2>

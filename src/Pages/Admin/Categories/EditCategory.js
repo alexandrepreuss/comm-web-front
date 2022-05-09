@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import AdminHeader from '../../../Components/AdminHeader'
 
 class EditCategory extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class EditCategory extends Component {
   render() {
     return (
       <>
+        <AdminHeader />
         <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
           <h2>Atualizar informações</h2>
           <Form onSubmit={this.update} autoComplete="off">
