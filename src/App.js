@@ -1,29 +1,67 @@
-import React, { useState, useEffect, Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import api from './api/games'
+import api from './Api/axios'
 import './App.css'
-import Games from './components/Games'
-import AddGame from './components/AddGame'
-import Header from './components/Header'
-import EditGame from './components/EditGame'
+import Games from './Pages/Admin/Games/Games'
+import AddGame from './Pages/Admin/Games/AddGame'
+import AddCategory from './Pages/Admin/Categories/AddCategory'
+import Header from './Components/Header'
+import EditGame from './Pages/Admin/Games/EditGame'
+import Categories from './Pages/Admin/Categories/Categories'
+import EditCategory from './Pages/Admin/Categories/EditCategory'
 
 function App() {
-  const LOCAL_STORAGE_KEY = 'jogos'
   const [games, setGames] = useState([])
+  const [categories, setCategories] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
 
-  //RetrieveGames
+  /**
+   *
+   * Métodos de chamada HTTP para Categorias
+   */
+
+  const retrieveCategories = async () => {
+    const response = await api.get('/categorias')
+    return response.data
+  }
+
+  const addCategoryHandler = async category => {
+    const response = await api.post('/categorias', category)
+    setCategories([...categories, response.data])
+    console.log(response)
+  }
+
+  const removeCategoryHandler = async id => {
+    await api.delete(`/categorias/${id}`)
+    const newCategoryList = categories.filter(category => {
+      return category.id !== id
+    })
+
+    setCategories(newCategoryList)
+  }
+
+  const updateCategoryHandler = async category => {
+    const response = await api.put(`/categorias/${category.id}`, category)
+    const { id, nome } = response.data
+    setCategories(
+      categories.map(cat => {
+        return cat.id === id ? { ...response.data } : cat
+      })
+    )
+  }
+
+  /**
+   *
+   * Métodos de chamada HTTP para Jogos
+   */
+
   const retrieveGames = async () => {
     const response = await api.get('/jogos')
-    console.log(response.data)
     return response.data
   }
 
   const addGameHandler = async game => {
-    // const request = {
-    //   ...game,
-    // }
     const response = await api.post('/jogos', game)
     setGames([...games, response.data])
   }
@@ -69,8 +107,17 @@ function App() {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(games))
-  }, [games])
+    const getAllCategories = async () => {
+      const allCategories = await retrieveCategories()
+      if (allCategories) setCategories(allCategories)
+    }
+
+    getAllCategories()
+  })
+
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(games))
+  // }, [games])
 
   return (
     <>
@@ -83,15 +130,37 @@ function App() {
             render={props => (
               <Games
                 {...props}
-                games={searchTerm.length < 1 ? games : searchResults}
                 getGameId={removeGameHandler}
+                games={searchTerm.length < 1 ? games : searchResults}
                 term={searchTerm}
                 searchKeyword={searchHandler}
               />
             )}
           />
-          <Route path="/add" render={props => <AddGame {...props} addGameHandler={addGameHandler} />} />
-          <Route path="/edit" render={props => <EditGame {...props} updateGameHandler={updateGameHandler} />} />
+          <Route
+            path="/add"
+            render={props => (
+              <AddGame
+                {...props}
+                addGameHandler={addGameHandler}
+                categories={categories}
+                getCatId={removeCategoryHandler}
+              />
+            )}
+          />
+          <Route
+            path="/edit"
+            render={props => <EditGame {...props} categories={categories} updateGameHandler={updateGameHandler} />}
+          />
+          <Route
+            path="/categories"
+            render={props => <Categories {...props} categories={categories} getCatId={removeCategoryHandler} />}
+          />
+          <Route path="/addcat" render={props => <AddCategory {...props} addCategoryHandler={addCategoryHandler} />} />
+          <Route
+            path="/editcat"
+            render={props => <EditCategory {...props} updateCategoryHandler={updateCategoryHandler} />}
+          />
         </Switch>
       </Router>
     </>

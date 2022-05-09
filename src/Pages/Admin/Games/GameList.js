@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const GameList = props => {
@@ -11,9 +10,6 @@ const GameList = props => {
         <td title={nome} style={{ fontWeight: 'bold' }}>
           <p>{nome.length > 18 ? nome.slice(0, 18) + `...` : nome}</p>
         </td>
-        {/* <td className="d-none d-sm-table-cell" title={url_jogo}>
-          {url_jogo.length > 12 ? url_jogo.slice(0, 12) + `...` : url_jogo}
-        </td> */}
         <td className="d-none d-sm-table-cell" title={url_jogo}>
           {url_jogo}
         </td>
