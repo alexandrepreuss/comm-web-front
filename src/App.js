@@ -9,6 +9,7 @@ import AddCategory from './Pages/Admin/Categories/AddCategory'
 import EditGame from './Pages/Admin/Games/EditGame'
 import Categories from './Pages/Admin/Categories/Categories'
 import EditCategory from './Pages/Admin/Categories/EditCategory'
+import GameDetail from './Components/GameDetail/GameDetail'
 
 function App() {
   const [games, setGames] = useState([])
@@ -161,6 +162,7 @@ function App() {
             path="/editcat"
             render={props => <EditCategory {...props} updateCategoryHandler={updateCategoryHandler} />}
           />
+          <Route path="/game/:id" component={GameDetail} />
         </Switch>
       </Router>
     </>
