@@ -10,6 +10,7 @@ import EditGame from './Pages/Admin/Games/EditGame'
 import Categories from './Pages/Admin/Categories/Categories'
 import EditCategory from './Pages/Admin/Categories/EditCategory'
 import GameDetail from './Components/GameDetail/GameDetail'
+import LoginButton from './Components/LoginButton/LoginButton'
 
 function App() {
   const [games, setGames] = useState([])
