@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import AdminHeader from '../../../Components/AdminHeader'
 
 class AddGame extends Component {
   constructor(props) {
@@ -30,12 +31,13 @@ class AddGame extends Component {
     })
 
     console.log(this.state)
-    this.props.history.push('/')
+    this.props.history.push('/admin')
   }
 
   render() {
     return (
       <>
+        <AdminHeader />
         <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
           <h2>Adicionar novo jogo</h2>
           <Form onSubmit={this.handleSubmit} autoComplete="off">
