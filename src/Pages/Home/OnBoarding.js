@@ -4,6 +4,7 @@ import { Button, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import CardList from '../../Components/CardsList/CardList'
 import Header from '../../Components/Header'
+import RecommendationList from '../../Components/Recommendation/RecommendationList'
 import Welcome from '../../Components/Welcome/Welcome'
 import Signup from './Signup'
 
@@ -27,24 +28,18 @@ const HomeOnBoarding = props => {
     }
   }, [firstLogin])
 
-  //   return (
-  //     <>
-  //       <h2>Seja bem vindo!</h2>
-  //       <Link to="/">
-  //         <Button>Voltar para o site!</Button>
-  //       </Link>
-  //     </>
-  //   )
-  // }
   if (!firstLogin) {
     return (
       <>
         <Header retrieveFilteredGames={props.retrieveFilteredGames} />
         <Welcome />
-        <Container>
-          <div style={{ marginTop: '32px' }}>
+        <Container className="d-flex">
+          <div style={{ marginTop: '32px' }} className="col-md-10">
             <h2 style={{ marginBottom: '24px' }}>Catálogo de jogos</h2>
             <CardList {...props} />
+          </div>
+          <div className="col-md-3" style={{ marginTop: '90px' }}>
+            <RecommendationList {...props} />
           </div>
         </Container>
       </>

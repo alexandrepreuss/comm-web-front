@@ -222,7 +222,7 @@ function App() {
             path="/editcat"
             render={props => <EditCategory {...props} updateCategoryHandler={updateCategoryHandler} />}
           />
-          <Route path="/game/:id" component={GameDetail} />
+          <Route path="/game/:id" render={props => <GameDetail {...props} />} />
         </Switch>
       </Router>
     </>
