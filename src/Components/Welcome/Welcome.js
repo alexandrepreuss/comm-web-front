@@ -1,5 +1,7 @@
 import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Container } from 'react-bootstrap'
+import './Welcome.css'
 
 const Welcome = () => {
   const { user, isAuthenticated } = useAuth0()
@@ -7,11 +9,12 @@ const Welcome = () => {
 
   return (
     isAuthenticated && (
-      <>
-        <h3>Bem vindo {user.name} !</h3>
-        <p>Id de usuário: {user.sub}</p>
-        <p>{JSON.stringify(user, null, 2)}</p>
-      </>
+      <div className="welcome">
+        <Container>
+          <h2 className="mt-4">Seja bem-vindo, {user.name} !</h2>
+          <p>Id de usuário: {user.sub}</p>
+        </Container>
+      </div>
     )
   )
 }
