@@ -79,6 +79,11 @@ function App() {
     return response.data
   }
 
+  const retrieveFilteredGames = async name => {
+    const response = await api.get(`/jogos/${name}`)
+    return response.data
+  }
+
   const addGameHandler = async game => {
     const response = await api.post('/jogos', game)
     setGames([...games, response.data])
