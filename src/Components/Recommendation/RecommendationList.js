@@ -18,7 +18,7 @@ const RecommendationList = props => {
     <>
       <Card>
         <Card.Body>
-          <p>Baseado no que você curtiu:</p>
+          <p>Baseado no que você curtiu: </p>
           <ul>{renderRecommendations}</ul>
         </Card.Body>
       </Card>
