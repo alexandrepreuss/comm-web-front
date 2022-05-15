@@ -1,12 +1,13 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import React, { useEffect, useState } from 'react'
-import { Container } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import CardList from '../../Components/CardsList/CardList'
 import Header from '../../Components/Header'
 import Welcome from '../../Components/Welcome/Welcome'
 import Signup from './Signup'
 
-const Home = props => {
+const HomeOnBoarding = props => {
   const { user, isAuthenticated } = useAuth0()
   const [firstLogin, setFirstLogin] = useState(false)
 
@@ -26,6 +27,15 @@ const Home = props => {
     }
   }, [firstLogin])
 
+  //   return (
+  //     <>
+  //       <h2>Seja bem vindo!</h2>
+  //       <Link to="/">
+  //         <Button>Voltar para o site!</Button>
+  //       </Link>
+  //     </>
+  //   )
+  // }
   if (!firstLogin) {
     return (
       <>
@@ -49,30 +59,6 @@ const Home = props => {
       </>
     )
   }
-
-  // if (!isAuthenticated) {
-  //   return (
-  //     <>
-  //       <Header />
-  //       <Welcome />
-  //       <Container>
-  //         <div style={{ marginTop: '32px' }}>
-  //           <h2 style={{ marginBottom: '24px' }}>Catálogo de jogos</h2>
-  //           <CardList {...props} />
-  //         </div>
-  //       </Container>
-  //     </>
-  //   )
-  // }
-
-  // if (isAuthenticated) {
-  //   return (
-  //     <>
-  //       <Header />
-  //       <Welcome />
-  //     </>
-  //   )
-  // }
 }
 
-export default Home
+export default HomeOnBoarding

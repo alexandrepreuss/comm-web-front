@@ -10,12 +10,29 @@ import EditGame from './Pages/Admin/Games/EditGame'
 import Categories from './Pages/Admin/Categories/Categories'
 import EditCategory from './Pages/Admin/Categories/EditCategory'
 import GameDetail from './Components/GameDetail/GameDetail'
+import HomeOnBoarding from './Pages/Home/OnBoarding'
+import Redirect from './Pages/Home/Redirect'
 
 function App() {
   const [games, setGames] = useState([])
   const [categories, setCategories] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState([])
+
+  /**
+   *
+   * Método chamada HTTP para Usuário
+   *
+   */
+
+  const showOnBoarding = async id => {
+    const res = await api.post('/usuarios/login', id)
+    if (res.data == null) {
+      return false
+    }
+    console.log(res.data)
+    return true
+  }
 
   /**
    *
@@ -86,6 +103,24 @@ function App() {
     setGames(newGameList)
   }
 
+  /**
+   *
+   * Métodos HTTP para Usuário
+   *
+   *
+   */
+
+  const addUserHandler = async user => {
+    await api.post('/usuarios', user)
+  }
+
+  /**
+   *
+   * Métodos para search bar
+   *
+   *
+   */
+
   const searchHandler = searchTerm => {
     setSearchTerm(searchTerm)
     if (searchTerm !== '') {
@@ -124,7 +159,19 @@ function App() {
     <>
       <Router>
         <Switch>
-          <Route path="/" exact render={props => <Home {...props} games={games} />} />
+          <Route
+            path="/"
+            exact
+            render={props => (
+              <Home {...props} games={games} showOnBoarding={showOnBoarding} addUserHandler={addUserHandler} />
+            )}
+          />
+          <Route path="/redirect" render={props => <Redirect {...props} />} />
+          <Route
+            path="/welcome"
+            exact
+            render={props => <HomeOnBoarding {...props} games={games} showOnBoarding={showOnBoarding} />}
+          />
           <Route
             path="/admin"
             exact
