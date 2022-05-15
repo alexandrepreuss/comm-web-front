@@ -5,7 +5,6 @@ import './App.css'
 import Games from './Pages/Admin/Games/Games'
 import Home from './Pages/Home/Home'
 import AddGame from './Pages/Admin/Games/AddGame'
-import Login from './Pages/Admin/Login'
 import AddCategory from './Pages/Admin/Categories/AddCategory'
 import EditGame from './Pages/Admin/Games/EditGame'
 import Categories from './Pages/Admin/Categories/Categories'
@@ -224,7 +223,7 @@ function App() {
             render={props => <EditCategory {...props} updateCategoryHandler={updateCategoryHandler} />}
           />
           <Route path="/game/:id" render={props => <GameDetail {...props} />} />
-          <Route path="admin/login" render={props => <Login {...props} />} />
+          {/* <Route path="admin/login" render={props => <Login {...props} />} /> */}
         </Switch>
       </Router>
     </>
