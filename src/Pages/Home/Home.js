@@ -29,7 +29,7 @@ const Home = props => {
   if (!firstLogin) {
     return (
       <>
-        <Header />
+        <Header retrieveFilteredGames={props.retrieveFilteredGames} />
         <Welcome />
         <Container>
           <div style={{ marginTop: '32px' }}>
@@ -44,7 +44,7 @@ const Home = props => {
   if (firstLogin) {
     return (
       <>
-        <Header />
+        <Header retrieveFilteredGames={props.retrieveFilteredGames} />
         <Signup {...props} addUserHandler={props.addUserHandler} />
       </>
     )

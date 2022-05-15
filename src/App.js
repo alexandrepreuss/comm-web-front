@@ -79,10 +79,11 @@ function App() {
     return response.data
   }
 
-  const retrieveFilteredGames = async name => {
-    const response = await api.get(`/jogos/${name}`)
-    return response.data
-  }
+  // const retrieveFilteredGames = async name => {
+  //   const response = await api.get(`/jogos/${name}`)
+  //   console.log(response.data)
+  //   return response.data
+  // }
 
   const addGameHandler = async game => {
     const response = await api.post('/jogos', game)
@@ -166,6 +167,13 @@ function App() {
         <Switch>
           <Route
             path="/"
+            exact
+            render={props => (
+              <Home {...props} games={games} showOnBoarding={showOnBoarding} addUserHandler={addUserHandler} />
+            )}
+          />
+          <Route
+            path="/search"
             exact
             render={props => (
               <Home {...props} games={games} showOnBoarding={showOnBoarding} addUserHandler={addUserHandler} />

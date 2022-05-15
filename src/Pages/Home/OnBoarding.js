@@ -39,7 +39,7 @@ const HomeOnBoarding = props => {
   if (!firstLogin) {
     return (
       <>
-        <Header />
+        <Header retrieveFilteredGames={props.retrieveFilteredGames} />
         <Welcome />
         <Container>
           <div style={{ marginTop: '32px' }}>
