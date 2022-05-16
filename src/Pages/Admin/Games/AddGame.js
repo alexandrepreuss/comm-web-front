@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
+import AdminHeader from '../../../Components/AdminHeader'
 
 class AddGame extends Component {
   constructor(props) {
@@ -30,12 +31,13 @@ class AddGame extends Component {
     })
 
     console.log(this.state)
-    this.props.history.push('/')
+    this.props.history.push('/admin')
   }
 
   render() {
     return (
       <>
+        <AdminHeader />
         <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
           <h2>Adicionar novo jogo</h2>
           <Form onSubmit={this.handleSubmit} autoComplete="off">
@@ -97,22 +99,17 @@ class AddGame extends Component {
             >
               <Form.Select aria-label="Default select example">
                 <option value="">Selecione a categoria</option>
+                {this.props.categories.map(category => (
+                  <option value={category.id}>{category.nome}</option>
+                ))}
+                {/* <option value="">Selecione a categoria</option>
                 <option value={1}>Ação</option>
                 <option value={2}>Luta</option>
                 <option value={3}>Tiro</option>
-                <option value={4}>Corrida</option>
+                <option value={4}>Corrida</option> */}
               </Form.Select>
-              {/* <Form.Select aria-label="Default select example">
-                <option value="">Selecione a categoria</option>
-                <option value="Shooter">Shooter</option>
-                <option value="Puzzle">Puzzle</option>
-                <option value="Arcade">Arcade</option>
-                <option value="RPG">Role Playing Game (RPG)</option>
-                <option value="Sports">Sports</option>
-                <option value="Action">Action</option>
-                <option value="Adventure">Adventure</option>
-              </Form.Select> */}
             </Form.Group>
+
             <Button className="w-100" style={{ marginTop: '16px' }} type="submit">
               Salvar
             </Button>
