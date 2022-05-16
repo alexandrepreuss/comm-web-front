@@ -3,10 +3,10 @@ import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Header from '../../Components/Header'
 
-const Redirect = () => {
+const Redirect = props => {
   return (
     <>
-      <Header />
+      <Header retrieveFilteredGames={props.retrieveFilteredGames} />
       <Container>
         <div className="h-100 d-flex justify-content-center align-items-center flex-column mt-5">
           <h2>Olá! Seja bem vindo!</h2>

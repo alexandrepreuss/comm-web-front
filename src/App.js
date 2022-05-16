@@ -36,6 +36,23 @@ function App() {
 
   /**
    *
+   * Método para avaliaçoes
+   *
+   *
+   */
+
+  const getRatings = async id => {
+    const res = await api.get(`avaliacoes/${id}`)
+    console.log(res.data)
+    return res.data
+  }
+
+  const addRatingHandler = async (rating, id) => {
+    console.log('teste')
+  }
+
+  /**
+   *
    * Métodos de chamada HTTP para Categorias
    */
 
@@ -166,6 +183,13 @@ function App() {
               <Home {...props} games={games} showOnBoarding={showOnBoarding} addUserHandler={addUserHandler} />
             )}
           />
+          <Route
+            path="/search"
+            exact
+            render={props => (
+              <Home {...props} games={games} showOnBoarding={showOnBoarding} addUserHandler={addUserHandler} />
+            )}
+          />
           <Route path="/redirect" render={props => <Redirect {...props} />} />
           <Route
             path="/welcome"
@@ -209,7 +233,7 @@ function App() {
             path="/editcat"
             render={props => <EditCategory {...props} updateCategoryHandler={updateCategoryHandler} />}
           />
-          <Route path="/game/:id" component={GameDetail} />
+          <Route path="/game/:id" render={props => <GameDetail {...props} getRatings={getRatings} />} />
         </Switch>
       </Router>
     </>

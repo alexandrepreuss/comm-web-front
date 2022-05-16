@@ -21,7 +21,7 @@ const Categories = props => {
       <AdminHeader />
       <div className="col-md-7 offset-md-2" style={{ marginTop: '3%' }}>
         <div className="main d-flex" style={{ justifyContent: 'space-between', marginBottom: '2%' }}>
-          <h2>Lista de Jogos</h2>
+          <h2>Lista de Categorias</h2>
           <Link to="/addcat">
             <Button>Adicionar categoria</Button>
           </Link>

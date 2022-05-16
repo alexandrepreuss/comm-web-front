@@ -2,9 +2,14 @@ import React from 'react'
 import { Container, Navbar, NavDropdown, Nav, Form, FormControl, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import retrieveFilteredGames from '../Utils/filtered-games'
 
-const Header = () => {
+const Header = props => {
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0()
+
+  const searchGames = async name => {
+    retrieveFilteredGames(name)
+  }
 
   return (
     <div>
@@ -35,7 +40,9 @@ const Header = () => {
             </Nav>
             <Form className="d-flex">
               <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" onClick={() => searchGames('mario')}>
+                Search
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Container>
