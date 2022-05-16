@@ -124,6 +124,42 @@ Rota para seção Admin: `http://localhost:3000/admin`
 
 - O usuário deve clicar no botão **deletar** da categoria à ser deletada. A lista atualizará automaticamente.
 
+### Seção Usuário
+
+Rota para seção Usuário: `http://localhost:3000/`
+
+**Tornando-se membro:**
+
+- O usuário deve clicar no botão *Login* presente na barra de navegação da página. Ele será redirecionado para página de Autenticação.
+- O usuário deve se cadastrar usando e-mail e senha ou seus dados gmail (caso possua), logo, ele será redirecionado para Tela de Bem-vindo, onde deverá clicar no botão *Ir ao CommWeb App!*.
+- O usuário será direcionado para a tela de Finalização de Cadastro.
+- O usuário deverá preencher todos os campos da página (nome de usuário, nome completo, data de nascimento, estado, país) e clicar em "Salvar" para ter seu cadastro salvo na Base de Dados. Ele será redirecionado para tela Home da aplicação.
+
+**Logando no sistema:**
+- O usuário deve clicar no botão *Login* presente na barra de navegação da página. Ele será redirecionado para página de Autenticação.
+- O usuário deve preencher os campos com seus dados cadastrados, ele será redirecionado para Tela de Bem-vindo, onde deverá clicar no botão *Ir ao Commweb App!*.
+- O usuário será redirecionado para a tela Home da aplicação.
+
+**Acessando informações de um jogo:**
+
+- Na tela Home da aplicação, o usuário tem acesso à lista de jogos cadastrados na Base de Dados do Sistema.
+- O usuário (cadastrado ou não) deve clicar no botão *Acessar jogo* para ter acesso às informações do jogo. Ele será direcionado na tela de Detalhes do Jogo.
+- A tela Detalhes do Jogo contem uma lista de comentários sobre o jogo feita por outros usuários _(à implementar)_.
+
+**Adicionando uma avaliação com comentário:**
+_CONDIÇÃO DE ACESSO A FUNCIONALIDADE: O usuário deve ser um membro cadastrado e deve estar logado no sistema._
+
+- O usuário cadastrado e logado no sistema, ao entrar na tela de Detalhes do Jogo, poderá adicionar sua nota e comentário nos campos *Deixe sua nota!* e *Deixe seu comentário* ao fim da página.
+- O usuário clicar no botão *Avaliar!* para salvar sua nota e comentário na Base de Dados do sistema _(à implementar)_.
+- O usuário terá acesso as avaliações com comentários no componente de Comentários ao lado direito da tela de Detalhes do Jogo _(à implementar)_.
+
+**Receber recomendação:**
+
+- O usuário cadastrado e logado no sistema, poderá ver a lista de cinco jogos recomendados no componente à direita na tela Home da aplicação.
+
+**Buscar jogo:**
+
+- _à ser implementado_
 
 ## 6. Integrantes do grupo
 
