@@ -147,6 +147,7 @@ Rota para seção Usuário: `http://localhost:3000/`
 - A tela Detalhes do Jogo contem uma lista de comentários sobre o jogo feita por outros usuários _(à implementar)_.
 
 **Adicionando uma avaliação com comentário:**
+
 _CONDIÇÃO DE ACESSO A FUNCIONALIDADE: O usuário deve ser um membro cadastrado e deve estar logado no sistema._
 
 - O usuário cadastrado e logado no sistema, ao entrar na tela de Detalhes do Jogo, poderá adicionar sua nota e comentário nos campos *Deixe sua nota!* e *Deixe seu comentário* ao fim da página.
