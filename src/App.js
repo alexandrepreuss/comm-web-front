@@ -36,6 +36,23 @@ function App() {
 
   /**
    *
+   * Método para avaliaçoes
+   *
+   *
+   */
+
+  const getRatings = async id => {
+    const res = await api.get(`avaliacoes/${id}`)
+    console.log(res.data)
+    return res.data
+  }
+
+  const addRatingHandler = async (rating, id) => {
+    console.log('teste')
+  }
+
+  /**
+   *
    * Métodos de chamada HTTP para Categorias
    */
 
@@ -78,12 +95,6 @@ function App() {
     const response = await api.get('/jogos')
     return response.data
   }
-
-  // const retrieveFilteredGames = async name => {
-  //   const response = await api.get(`/jogos/${name}`)
-  //   console.log(response.data)
-  //   return response.data
-  // }
 
   const addGameHandler = async game => {
     const response = await api.post('/jogos', game)
@@ -222,8 +233,7 @@ function App() {
             path="/editcat"
             render={props => <EditCategory {...props} updateCategoryHandler={updateCategoryHandler} />}
           />
-          <Route path="/game/:id" render={props => <GameDetail {...props} />} />
-          {/* <Route path="admin/login" render={props => <Login {...props} />} /> */}
+          <Route path="/game/:id" render={props => <GameDetail {...props} getRatings={getRatings} />} />
         </Switch>
       </Router>
     </>
