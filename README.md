@@ -71,9 +71,16 @@ Rode localmente em sua máquina, utilizando o comando:
 
 O projeto será inicializado em [http://localhost:3000](http://localhost:3000).
 
+_NOTA: Para que o aplicativo tenha acesso ao banco de dados localmente, é necessária a instalação do backend desse projeto. O mesmo pode ser encontrado nesse [link](https://github.com/guilchaves/mack-pro-comm-web)._
+
 ## 5. Guia do usuário
 
 Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jogos cadastrados em seu banco de dados. O usuário pode **adicionar um novo jogo**, **editar jogos existentes**, **deletar jogos existentes**, **buscar jogos na lista**. 
+
+
+### Seção Admin
+
+Rota para seção Admin: `http://localhost:3000/admin`
 
 **Adicionando um novo jogo:** 
 
@@ -95,6 +102,28 @@ Funcionalidades: O aplicativo permite ao usuário administrador gerenciar os jog
 **Buscando um jogo da lista:**
 
 - O usuário deve digitar na barra de busca algum atributo referente ao jogo desejado (nome, descrição, url da imagem, url do jogo ou categoria). A lista atualizará automaticamente renderizando os resultados encontrados.
+
+**Acessando a seção de categorias:**
+
+- O usuário deve clicar no link de **categorias** presente na barra de navegação da página. Ele será redirecionado à Lista de Categorias.
+
+**Adicionando uma nova categoria:**
+
+- O usuário deve clicar no botão **Adicionar categoria** para ser direcionado à tela de cadastro de categoria.
+- O usuário deve preencher o campo *Nome da Categoria* para o nome da categoria.
+- O usuário deve clicar no botão **Salvar** ao fim do fomrulário para salvar a categoria na Base de Dados e ser redirecionado à tela de Lista de Categorias.
+
+**Editando uma categoria existente:**
+
+- O usuário deve clicar no botão **editar** da categoria à ser editado e será direcionado à tela de edição de categoria.
+- O usuário deve alterar o campo *Nome da Categoria* com as novas informações a serem salvas.
+- O usuário deve clicar no botão **salvar alterações** para salvar as alterações na Base de Dados e ser redirecionado à tela de Lista de Categorias.
+- Caso a lista não esteja atualizada, o usuário deve clicar no botão *Atualizar Lista* para recarregar a Lista de Categorias.
+
+**Deletando uma categoria existente:**
+
+- O usuário deve clicar no botão **deletar** da categoria à ser deletada. A lista atualizará automaticamente.
+
 
 ## 6. Integrantes do grupo
 
